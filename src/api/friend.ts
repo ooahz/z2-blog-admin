@@ -1,0 +1,23 @@
+import {http} from "@/utils/http";
+import type {Result} from "@/types/result";
+import {ResultList} from "@/types/result";
+import {Friend} from "@/types/friend";
+
+const BASE_URL = "admin/v1/a/friends";
+
+export const listFriend= (params?: any) => {
+  return http.request<ResultList<Friend>>("get", BASE_URL + "/list", {params});
+};
+
+export const saveFriend= (data: Friend) => {
+  return http.request<Result<Friend>>("post", BASE_URL, {data});
+};
+
+export const updateFriend= (data: Friend) => {
+  return http.request<Result<Friend>>("put", BASE_URL, {data});
+};
+
+export const deleteFriend= (friendId: string) => {
+  return http.request<Result<Friend>>("delete", BASE_URL + `/${friendId}`);
+};
+

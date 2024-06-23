@@ -1,0 +1,11 @@
+.vditor-ir pre.vditor-reset {
+  min-height: 50vh;
+}
+
+.vditor-ir pre.vditor-reset:focus,
+.vditor-reset table tbody tr:nth-child(2n),
+.vditor-reset table tr,
+.vditor-toolbar,
+.vditor-ir pre.vditor-reset {
+  background-color: transparent !important;
+}
