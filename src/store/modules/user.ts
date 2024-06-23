@@ -1,11 +1,9 @@
 import {defineStore} from "pinia";
 import {store} from "@/store";
 import type {userType} from "./types";
-import {routerArrays} from "@/layout/types";
 import {resetRouter, router} from "@/router";
 import {storageLocal} from "@pureadmin/utils";
 import {getLogin, logoutUser} from "@/api/user";
-import {useMultiTagsStoreHook} from "@/store/modules/multiTags";
 import {removeToken, userKey} from "@/utils/auth";
 import type {UserInfo} from "@/types/user";
 
@@ -47,7 +45,6 @@ export const useUserStore = defineStore({
       this.name = "";
       this.roles = [];
       removeToken();
-      useMultiTagsStoreHook().handleTags("equal", [...routerArrays]);
       resetRouter();
       router.push("/login");
     },
