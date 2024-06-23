@@ -18,7 +18,9 @@ export const useArticleStore = defineStore({
       this.article.isDraft = isDraft;
       this.article.id = null;
     },
-
+    updateDate(){
+      this.article.updatedDate = new Date();
+    },
     initArticle() {
       this.article = {
         content: "",

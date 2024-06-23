@@ -33,7 +33,7 @@ onMounted(() => {
           placeholder="文章封面地址"
         >
           <template #append>
-            预览
+            <a :href="articleStore.article.thumbnail" target="_blank">预览</a>
           </template>
         </el-input>
       </div>

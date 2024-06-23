@@ -16,35 +16,71 @@ export function vditorInit() {
         enable: true,
       },
       icon: "material",
-      // cdn: "https://s.ahzoo.cn/comment/plugin",
+      // cdn: "",
       // 工具栏
-      // toolbar: ["emoji", "link", "code", "inline-code"],
+      toolbar: [
+        "headings",
+        "bold",
+        "italic",
+        "strike",
+        "|",
+        "table",
+        "list",
+        "ordered-list",
+        "check",
+        "outdent",
+        "indent",
+        "|",
+        "link",
+        "quote",
+        "line",
+        "code",
+        "inline-code",
+        "insert-before",
+        "insert-after",
+        "|",
+        "undo",
+        "redo",
+        "|",
+        "edit-mode",
+        {
+          name: "more",
+          toolbar: [
+            "both",
+            "code-theme",
+            "content-theme",
+            "export",
+            "outline",
+            "preview",
+          ],
+        },
+      ],
       preview: {
         hljs: {
           enable: true,
           style: "base16-snazzy",
-          langs: ["java", "html", "javascript"]
+          langs: ["java", "html", "javascript", "shell"]
         },
       },
       upload: {
         accept: "image/*",
         token: "ahzoo",
         // 图片上传地址
-        url: "/v1/comment/upload",
+        url: "",
         // 对剪切板中的第三方图片链接重新上传
-        linkToImgUrl: "/v1/comment/upload",
-        max: 1 * 1024 * 1024,
+        linkToImgUrl: "",
+        // 最大上传文件大小 10M
+        max: 10 * 1024 * 1024,
         // 文件名处理
         filename(name) {
           return name.replace(/[^(a-zA-Z0-9\u4e00-\u9fa5\.)]/g, "").replace(/[\?\\/:|<>\*\[\]\(\)\$%\{\}@~]/g, "").replace("/\\s/g", "")
         },
         // 上传成功回调
         success(editor: HTMLPreElement, msg: string) {
-          // tipsMsg.value = "图片上传功能未开启！"
           // vditor.value!.insertValue("value: string")
         },
+        // 上传失败回调
         error(msg: string) {
-          // tipsMsg.value = "图片上传功能未开启！"
         }
       },
     })

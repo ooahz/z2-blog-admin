@@ -30,6 +30,8 @@ async function init() {
     const loadingInstance = ElLoading.service({fullscreen: true})
     const newArticle = await getArticleDetail(articleId);
     articleStore.setArticle(newArticle);
+    // 自动将当前时间设置为文章更新时间
+    articleStore.updateDate();
     vditorStore.updateContent(articleStore.article.content);
     loadingInstance.close();
   }
