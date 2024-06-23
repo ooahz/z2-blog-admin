@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Search from "./search/index.vue";
-import Notice from "./notice/index.vue";
 import mixNav from "./sidebar/mixNav.vue";
-import { useNav } from "@/layout/hooks/useNav";
+import {useNav} from "@/layout/hooks/useNav";
 import FullScreen from "./sidebar/fullScreen.vue";
 import Breadcrumb from "./sidebar/breadCrumb.vue";
 import topCollapse from "./sidebar/topCollapse.vue";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
+import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
 
 const {
@@ -18,7 +18,8 @@ const {
   name,
   userAvatar,
   avatarsStyle,
-  toggleSideBar
+  toggleSideBar,
+  toAccountSettings
 } = useNav();
 </script>
 
@@ -36,22 +37,29 @@ const {
       class="breadcrumb-container"
     />
 
-    <mixNav v-if="layout === 'mix'" />
+    <mixNav v-if="layout === 'mix'"/>
 
     <div v-if="layout === 'vertical'" class="vertical-header-right">
       <!-- 菜单搜索 -->
-      <Search id="header-search" />
+      <Search id="header-search"/>
       <!-- 全屏 -->
-      <FullScreen id="full-screen" />
+      <FullScreen id="full-screen"/>
       <!-- 消息通知 -->
-<!--      <Notice id="header-notice" />-->
+      <!--      <Notice id="header-notice" />-->
       <!-- 退出登录 -->
       <el-dropdown trigger="click">
         <span class="el-dropdown-link navbar-bg-hover select-none">
-          <img :src="userAvatar" :style="avatarsStyle" />
+          <img :src="userAvatar" :style="avatarsStyle"/>
           <p v-if="name" class="dark:text-white">{{ name }}</p>
         </span>
         <template #dropdown>
+          <el-dropdown-item @click="toAccountSettings">
+            <IconifyIconOffline
+              :icon="AccountSettingsIcon"
+              style="margin: 5px"
+            />
+            账号设置
+          </el-dropdown-item>
           <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
               <IconifyIconOffline
@@ -68,7 +76,7 @@ const {
         title="打开项目配置"
         @click="onPanel"
       >
-        <IconifyIconOffline :icon="Setting" />
+        <IconifyIconOffline :icon="Setting"/>
       </span>
     </div>
   </div>

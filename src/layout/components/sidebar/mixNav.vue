@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import extraIcon from "./extraIcon.vue";
 import Search from "../search/index.vue";
-// import Notice from "../notice/index.vue";
 import FullScreen from "./fullScreen.vue";
-import { isAllEmpty } from "@pureadmin/utils";
-import { useNav } from "@/layout/hooks/useNav";
-import { ref, toRaw, watch, onMounted, nextTick } from "vue";
-import { useRenderIcon } from "@/components/ReIcon/src/hooks";
-import { getParentPaths, findRouteByPath } from "@/router/utils";
-import { usePermissionStoreHook } from "@/store/modules/permission";
+import {isAllEmpty} from "@pureadmin/utils";
+import {useNav} from "@/layout/hooks/useNav";
+import {ref, toRaw, watch, onMounted, nextTick} from "vue";
+import {useRenderIcon} from "@/components/ReIcon/src/hooks";
+import {getParentPaths, findRouteByPath} from "@/router/utils";
+import {usePermissionStoreHook} from "@/store/modules/permission";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
+import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
 
 const menuRef = ref();
@@ -24,7 +24,8 @@ const {
   name,
   userAvatar,
   getDivStyle,
-  avatarsStyle
+  avatarsStyle,
+  toAccountSettings
 } = useNav();
 
 function getDefaultActive(routePath) {
@@ -84,25 +85,32 @@ watch(
             <span class="select-none">
               {{ route.meta.title }}
             </span>
-            <extraIcon :extraIcon="route.meta.extraIcon" />
+            <extraIcon :extraIcon="route.meta.extraIcon"/>
           </div>
         </template>
       </el-menu-item>
     </el-menu>
     <div class="horizontal-header-right">
       <!-- 菜单搜索 -->
-      <Search id="header-search" />
+      <Search id="header-search"/>
       <!-- 全屏 -->
-      <FullScreen id="full-screen" />
+      <FullScreen id="full-screen"/>
       <!-- 消息通知 -->
-<!--      <Notice id="header-notice" />-->
+      <!--      <Notice id="header-notice" />-->
       <!-- 退出登录 -->
       <el-dropdown trigger="click">
         <span class="el-dropdown-link navbar-bg-hover select-none">
-          <img :src="userAvatar" :style="avatarsStyle" />
+          <img :src="userAvatar" :style="avatarsStyle"/>
           <p v-if="name" class="dark:text-white">{{ name }}</p>
         </span>
         <template #dropdown>
+          <el-dropdown-item @click="toAccountSettings">
+            <IconifyIconOffline
+              :icon="AccountSettingsIcon"
+              style="margin: 5px"
+            />
+            账号设置
+          </el-dropdown-item>
           <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
               <IconifyIconOffline
@@ -119,7 +127,7 @@ watch(
         title="打开项目配置"
         @click="onPanel"
       >
-        <IconifyIconOffline :icon="Setting" />
+        <IconifyIconOffline :icon="Setting"/>
       </span>
     </div>
   </div>

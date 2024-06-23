@@ -116,6 +116,10 @@ export function useNav() {
     return new URL("/logo.svg", import.meta.url).href;
   }
 
+  function toAccountSettings() {
+    router.push({ name: "AccountSettings" });
+  }
+
   return {
     route,
     title,
@@ -142,6 +146,7 @@ export function useNav() {
     name,
     userAvatar,
     avatarsStyle,
-    tooltipEffect
-  };
+    tooltipEffect,
+    toAccountSettings
+};
 }
