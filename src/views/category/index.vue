@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useCategory } from "./utils/hook";
-import { ref, nextTick, onMounted } from "vue";
-import { PureTableBar } from "@/components/RePureTableBar";
-import { useRenderIcon } from "@/components/ReIcon/src/hooks";
+import {useCategory} from "./utils/hook";
+import {ref, nextTick, onMounted} from "vue";
+import {PureTableBar} from "@/components/RePureTableBar";
+import {useRenderIcon} from "@/components/ReIcon/src/hooks";
 import {
   delay,
   subBefore,
@@ -79,8 +79,7 @@ onMounted(() => {
             :adaptiveConfig="{ offsetBottom: 108 }"
             :data="dataList"
             :columns="dynamicColumns"
-            :pagination="pagination"
-            :paginationSmall="size === 'small' ? true : false"
+            :pagination="undefined"
             :header-cell-style="{
               background: 'var(--el-fill-color-light)',
               color: 'var(--el-text-color-primary)'
