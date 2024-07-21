@@ -61,7 +61,7 @@ export function useColumn() {
   }
 
   function handleSizeChange(val: number) {
-    if (val <= 1) {
+    if (val < 1) {
       return;
     }
     getColumnList(val);

@@ -153,7 +153,7 @@ export function useArticle(treeRef: Ref) {
   }
 
   function handleCurrentChange(val: number) {
-    if (val <= 1) {
+    if (val < 1) {
       return;
     }
     getArticleList(val);

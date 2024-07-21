@@ -47,7 +47,7 @@ export function useCategory() {
   }
 
   function handleCurrentChange(val: number) {
-    if (val <= 1) {
+    if (val < 1) {
       return;
     }
     getCategoryList(val);
