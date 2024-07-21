@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex wide:flex-row flex-col">
-    <div class="w-full">
+    <div class="article-content">
       <el-card shadow="never">
         <div class="flex flex-col h-full w-full">
           <div class="flex items-center my-2">
@@ -132,8 +132,21 @@ onBeforeUnmount(() => {
         </div>
       </el-card>
     </div>
-    <div class="wide:ml-3 wide:w-2/5 w-full ml-0">
+    <div class="wide:ml-3 wide:w-2/5 w-full ml-0 min-w-[300px]">
       <Info/>
     </div>
   </div>
 </template>
+
+<style scoped>
+.article-content {
+  width: 100%;
+  max-width: calc(100% - 320px);
+}
+
+@media screen and (max-width: 950px) {
+  .article-content {
+    max-width: 100%
+  }
+}
+</style>

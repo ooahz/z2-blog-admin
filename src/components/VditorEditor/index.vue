@@ -10,12 +10,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="ahzoo-editor" class="h-full w-full"/>
+  <div id="ahzoo-editor"/>
 </template>
 
 <style lang="scss">
 #ahzoo-editor {
   width: 100% !important;
   height: 100% !important;
+  overflow: auto;
 }
 </style>
