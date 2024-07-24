@@ -7,9 +7,9 @@ import {onMounted, reactive, ref, type Ref, toRaw, watch} from "vue";
 import {deleteArticle, listArticle, updateArticlePart} from "@/api/article";
 import router from "@/router";
 import type {Article, ArticleItem} from "@/types/article";
-import {ResultList} from "@/types/result";
+import {Result, ResultList} from "@/types/result";
 import {listAllColumn} from "@/api/column";
-import {searchByKeyword} from "@/api/search";
+import {refreshIndex, searchByKeyword} from "@/api/search";
 import {Column} from "@/types/column";
 import {storageSession} from "@pureadmin/utils";
 
@@ -231,6 +231,12 @@ export function useArticle(treeRef: Ref) {
     getArticleList(1);
   };
 
+  const refreshIndexHandle = () => {
+    refreshIndex();
+    message("刷新任务已提交，请耐心等待", {type: "success"});
+  };
+
+
   onMounted(() => {
     getArticleList(1);
     listAllColumn().then(res => {
@@ -258,6 +264,7 @@ export function useArticle(treeRef: Ref) {
     goEdit,
     goNew,
     resetForm,
+    refreshIndexHandle,
     handleDelete,
     handleSizeChange,
     handleCurrentChange,

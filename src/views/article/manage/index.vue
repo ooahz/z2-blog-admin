@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useArticle } from "./utils/hook";
-import { ref, computed, nextTick, onMounted } from "vue";
-import { PureTableBar } from "@/components/RePureTableBar";
-import { useRenderIcon } from "@/components/ReIcon/src/hooks";
+import {useArticle} from "./utils/hook";
+import {ref, computed, nextTick, onMounted} from "vue";
+import {PureTableBar} from "@/components/RePureTableBar";
+import {useRenderIcon} from "@/components/ReIcon/src/hooks";
 import {
   delay,
   subBefore,
@@ -58,6 +58,7 @@ const {
   goEdit,
   goNew,
   resetForm,
+  refreshIndexHandle,
   handleDelete,
   handleSizeChange,
   handleCurrentChange,
@@ -99,8 +100,8 @@ onMounted(() => {
           clearable
           class="!w-[180px]"
         >
-          <el-option label="原创" value="1" />
-          <el-option label="转载" value="2" />
+          <el-option label="原创" value="1"/>
+          <el-option label="转载" value="2"/>
         </el-select>
       </el-form-item>
       <el-form-item label="状态：" prop="status">
@@ -110,9 +111,9 @@ onMounted(() => {
           clearable
           class="!w-[180px]"
         >
-          <el-option label="显示" value="1" />
-          <el-option label="隐藏" value="2" />
-          <el-option label="草稿" value="3" />
+          <el-option label="显示" value="1"/>
+          <el-option label="隐藏" value="2"/>
+          <el-option label="草稿" value="3"/>
         </el-select>
       </el-form-item>
       <el-form-item label="专栏：" prop="type">
@@ -122,7 +123,7 @@ onMounted(() => {
           clearable
           class="!w-[180px]"
         >
-          <el-option v-for="item in columnList" :label="item.name" :value="item.id" />
+          <el-option v-for="item in columnList" :label="item.name" :value="item.id"/>
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -144,6 +145,9 @@ onMounted(() => {
         </el-button>
         <el-button :icon="useRenderIcon(Refresh)" @click="resetForm(formRef)">
           重置
+        </el-button>
+        <el-button type="primary" :icon="useRenderIcon(Refresh)" @click="refreshIndexHandle()">
+          同步搜索索引
         </el-button>
       </el-form-item>
     </el-form>
