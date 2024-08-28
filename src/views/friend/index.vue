@@ -79,7 +79,8 @@ onMounted(() => {
             :adaptiveConfig="{ offsetBottom: 108 }"
             :data="dataList"
             :columns="dynamicColumns"
-            :pagination="undefined"
+            :pagination="pagination"
+            :paginationSmall="size === 'small' ? true : false"
             :header-cell-style="{
               background: 'var(--el-fill-color-light)',
               color: 'var(--el-text-color-primary)'
