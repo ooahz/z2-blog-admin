@@ -128,7 +128,7 @@ export function useFriend() {
 
   function openDialog(title = "新增", row?: Friend) {
     addDialog({
-      title: `${title}分类`,
+      title: `${title}友链`,
       props: {
         friendForm: {
           id: row?.id ?? "",
