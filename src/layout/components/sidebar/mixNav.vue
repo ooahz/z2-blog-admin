@@ -9,7 +9,6 @@ import {useRenderIcon} from "@/components/ReIcon/src/hooks";
 import {getParentPaths, findRouteByPath} from "@/router/utils";
 import {usePermissionStoreHook} from "@/store/modules/permission";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
-import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
 
 const menuRef = ref();
@@ -104,13 +103,6 @@ watch(
           <p v-if="name" class="dark:text-white">{{ name }}</p>
         </span>
         <template #dropdown>
-          <el-dropdown-item @click="toAccountSettings">
-            <IconifyIconOffline
-              :icon="AccountSettingsIcon"
-              style="margin: 5px"
-            />
-            账号设置
-          </el-dropdown-item>
           <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
               <IconifyIconOffline

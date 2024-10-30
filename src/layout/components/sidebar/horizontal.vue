@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Search from "../search/index.vue";
+import Notice from "../notice/index.vue";
 import FullScreen from "./fullScreen.vue";
 import SidebarItem from "./sidebarItem.vue";
 import { isAllEmpty } from "@pureadmin/utils";
@@ -7,7 +8,6 @@ import { ref, nextTick, computed } from "vue";
 import { useNav } from "@/layout/hooks/useNav";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 import LogoutCircleRLine from "@iconify-icons/ri/logout-circle-r-line";
-import AccountSettingsIcon from "@iconify-icons/ri/user-settings-line";
 import Setting from "@iconify-icons/ri/settings-3-line";
 
 const menuRef = ref();
@@ -21,8 +21,7 @@ const {
   getLogo,
   name,
   userAvatar,
-  avatarsStyle,
-  toAccountSettings
+  avatarsStyle
 } = useNav();
 
 const defaultActive = computed(() =>
@@ -72,13 +71,6 @@ nextTick(() => {
           <p v-if="name" class="dark:text-white">{{ name }}</p>
         </span>
         <template #dropdown>
-          <el-dropdown-item @click="toAccountSettings">
-            <IconifyIconOffline
-              :icon="AccountSettingsIcon"
-              style="margin: 5px"
-            />
-            账号设置
-          </el-dropdown-item>
           <el-dropdown-menu class="logout">
             <el-dropdown-item @click="logout">
               <IconifyIconOffline

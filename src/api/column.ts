@@ -5,7 +5,7 @@ import type {Column} from "@/types/column";
 const BASE_URL = "admin/v1/a/columns";
 
 export const listColumn = (params?: any) => {
-  return http.request<ResultList<Column>>("get", BASE_URL + "/list", {params});
+  return http.request<ResultList<Column>>("get", BASE_URL + "", {params});
 };
 
 export const listAllColumn = () => {

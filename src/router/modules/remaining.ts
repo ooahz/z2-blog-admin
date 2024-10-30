@@ -26,15 +26,5 @@ export default [
         component: () => import("@/layout/redirect.vue")
       }
     ]
-  },
-  {
-    path: "/account-settings",
-    name: "AccountSettings",
-    component: () => import("@/views/account-settings/index.vue"),
-    meta: {
-      title: "账号管理",
-      showLink: false,
-      rank: 104
-    }
   }
 ] satisfies Array<RouteConfigsTable>;

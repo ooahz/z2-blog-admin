@@ -6,7 +6,7 @@ import {Friend} from "@/types/friend";
 const BASE_URL = "admin/v1/a/friends";
 
 export const listFriend= (params?: any) => {
-  return http.request<ResultList<Friend>>("get", BASE_URL + "/list", {params});
+  return http.request<ResultList<Friend>>("get", BASE_URL + "", {params});
 };
 
 export const saveFriend= (data: Friend) => {

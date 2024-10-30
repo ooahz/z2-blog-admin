@@ -21,7 +21,7 @@ export const deleteArticle = (articleId: string) => {
 };
 
 export const listArticle = (params: any) => {
-  return http.request<ResultList<Article>>("get", BASE_URL + "/list", {params});
+  return http.request<ResultList<Article>>("get", BASE_URL + "", {params});
 };
 
 export const getArticleDetail = (articleId: string) => {

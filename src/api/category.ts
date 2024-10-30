@@ -6,7 +6,7 @@ import {ResultList} from "@/types/result";
 const BASE_URL = "admin/v1/a/categories";
 
 export const listCategory = (params?: any) => {
-  return http.request<ResultList<Category>>("get", BASE_URL + "/list", {params});
+  return http.request<ResultList<Category>>("get", BASE_URL + "", {params});
 };
 
 export const saveCategory = (data: Category) => {
