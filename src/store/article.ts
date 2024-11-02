@@ -14,10 +14,6 @@ export const useArticleStore = defineStore({
       this.article.content = content;
       this.article.htmlContent = htmlContent;
     },
-    setIsDraft(isDraft: boolean) {
-      this.article.isDraft = isDraft;
-      this.article.id = null;
-    },
     updateDate(){
       this.article.updatedDate = new Date();
     },

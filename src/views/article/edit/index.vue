@@ -95,19 +95,6 @@ function checkParams(article: Article, isDraft = false) {
   return true;
 }
 
-async function saveDraft() {
-  buildContent();
-  articleStore.setIsDraft(true);
-  if (!checkParams(articleStore.article, true)) {
-    return;
-  }
-  const res = await saveArticle(articleStore.article);
-  if (res.state === "success") {
-    message("保存成功", {type: "success"});
-    await router.push({name: "ArticleManage"});
-  }
-}
-
 onMounted(() => {
   init();
 });
@@ -125,7 +112,6 @@ onBeforeUnmount(() => {
           <div class="flex items-center my-2">
             <el-input required class="mr-2" v-model="articleStore.article.title" placeholder="输入文章标题"
                       size="large"/>
-            <el-button type="primary" plain size="large" @click="saveDraft">存为草稿</el-button>
             <el-button type="primary" size="large" @click="saveOrUpdate">{{ saveTitle }}</el-button>
           </div>
           <VditorEditor/>
