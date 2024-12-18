@@ -2,7 +2,7 @@ import {http} from "@/utils/http";
 import type {Article} from "@/types/article"
 import {Result, ResultList} from "@/types/result";
 
-const BASE_URL = "admin/v1/a/articles";
+const BASE_URL = "blog/v1/a/articles";
 
 export const saveArticle = (data: Article, params?: any) => {
   return http.request<Result<Article>>("post", BASE_URL, {data}, params);

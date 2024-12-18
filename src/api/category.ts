@@ -3,7 +3,7 @@ import type {Category} from "@/types/category"
 import type {Result} from "@/types/result";
 import {ResultList} from "@/types/result";
 
-const BASE_URL = "admin/v1/a/categories";
+const BASE_URL = "blog/v1/a/categories";
 
 export const listCategory = (params?: any) => {
   return http.request<ResultList<Category>>("get", BASE_URL + "", {params});

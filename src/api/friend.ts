@@ -3,7 +3,7 @@ import type {Result} from "@/types/result";
 import {ResultList} from "@/types/result";
 import {Friend} from "@/types/friend";
 
-const BASE_URL = "admin/v1/a/friends";
+const BASE_URL = "blog/v1/a/friends";
 
 export const listFriend= (params?: any) => {
   return http.request<ResultList<Friend>>("get", BASE_URL + "", {params});

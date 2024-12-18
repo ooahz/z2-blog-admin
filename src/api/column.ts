@@ -2,7 +2,7 @@ import {http} from "@/utils/http";
 import type {Result, ResultList} from "@/types/result";
 import type {Column} from "@/types/column";
 
-const BASE_URL = "admin/v1/a/columns";
+const BASE_URL = "blog/v1/a/columns";
 
 export const listColumn = (params?: any) => {
   return http.request<ResultList<Column>>("get", BASE_URL + "", {params});
