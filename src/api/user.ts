@@ -1,6 +1,6 @@
 import {http} from "@/utils/http";
 import {Result} from "@/types/result";
-import {LoginUser, UserInfo} from "@/types/user";
+import {LoginUser, ResetPasswordUser, UserInfo} from "@/types/user";
 
 const BASE_URL = "admin/v1";
 
@@ -10,4 +10,8 @@ export const getLogin = (data: LoginUser) => {
 
 export const logoutUser = (data: UserInfo) => {
   return http.request<Result<UserInfo>>("post", BASE_URL + "/logout", {data});
+};
+
+export const resetPassword = (data: ResetPasswordUser) => {
+  return http.request<Result<any>>("post", BASE_URL + "/a/users/reset", {data});
 };

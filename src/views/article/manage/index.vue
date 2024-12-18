@@ -146,9 +146,6 @@ onMounted(() => {
         <el-button :icon="useRenderIcon(Refresh)" @click="resetForm(formRef)">
           重置
         </el-button>
-        <el-button type="primary" :icon="useRenderIcon(Refresh)" @click="refreshIndexHandle()">
-          同步搜索索引
-        </el-button>
       </el-form-item>
     </el-form>
 

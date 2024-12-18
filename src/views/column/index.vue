@@ -96,7 +96,6 @@ onMounted(() => {
         style="transition: width 220ms cubic-bezier(0.4, 0, 0.2, 1)"
         title="专栏管理"
         :columns="columns"
-        @refresh="onSearch"
       >
         <template #buttons>
           <el-button
